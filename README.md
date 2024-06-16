@@ -11,7 +11,8 @@ Define the aws/azure/GCP providers as required & only define here provider versi
 
 # terraform validate  - Command to validate .tf file configuration, The terraform validate command is used to validate the syntax of the terraform files.
 # terraform init   - Command to download Provider plugins
-# terraform plan   - Command to review the Update in resources, The terraform plan command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the real infrastructure objects being managed with the current working directory and workspace.
+# terraform plan   - Command to review the Update in resources, The terraform plan command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the real infrastructure objects being managed with the current 
+  working directory and workspace.
 # terraform apply   - command to apply changes to resources on Cloud
 # terraform destroy  - command to delete all resources created by terraform file
 # terraform destroy -target=<resourcestype.Local resource name>  - i.e if we say Aws instance need deletion #terraform destroy -target aws_instance.myec2
@@ -38,6 +39,8 @@ The arguments available within a lifecycle block are create_before_destroy, prev
 
 **local value** local value assigns a name to an expression, allowing it to be used multiple times within a module without repeating it.
 
-**Terraform Function** Terraform functions are built-in, reusable code blocks that perform specific tasks within Terraform configurations
+**Terraform Function** Terraform functions are built-in, reusable code blocks that perform specific tasks within Terraform configurations, such as numeric(min,max) , Date & time , string .
+
+
 
 
