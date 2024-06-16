@@ -21,7 +21,7 @@ Terraform the Desired state to the Current state: Terraform primary function is 
 # terraform version  - command to get a version of terraform, provider versions installed.
 **Provider Version** - under the provider block you can specify the version of the provider plugin that needs to be installed, you can use different options to define a version. This is also made to avoid automatic updates of the provider version, if still need to upgrade delete the lock.hcl file and modify provider block with the desired version then run #terraform init command.
 **Dependency lock(terraform.lock.hcl)** - Terraform dependency lock file allows us to lock to a specific version of the provider.
-# terraform init -upgrade  - command overrides the lock.hcl file in place.
+#terraform init -upgrade  - command overrides the lock.hcl file in place.
 
 **Lifecyle in terraform** Lifecycle is a nested block that can appear within a resource block. The lifecycle block and its contents are meta-arguments, available for all resource blocks regardless of type.
 
