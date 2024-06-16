@@ -9,7 +9,7 @@ Define the aws/azure/GCP providers as required & only define here provider versi
 
 **Remote backend** THis use to store terraform.tfstate state file as its allow encryption, version controll, locking of tfstate.
 
-#terraform validate  - Command to validate .tf file configuration, The terraform validate command is used to validate the syntax of the terraform files.
+*#terraform validate*  - Command to validate .tf file configuration, The terraform validate command is used to validate the syntax of the terraform files.
 
 #terraform init   - Command to download Provider plugins
 
