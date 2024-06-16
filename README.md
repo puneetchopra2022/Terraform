@@ -16,11 +16,12 @@ Define the aws/azure/GCP providers as required & only define here provider versi
 #terraform plan   - Command to review the Update in resources, The terraform plan command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the real infrastructure objects being managed with the current 
   working directory and workspace.
   
-#terraform apply   - command to apply changes to resources on Cloud
+#terraform apply  or  #terraform apply -auto-arrpve  - command to apply changes to resources on Cloud
 
 #terraform destroy  - command to delete all resources created by terraform file
 
 #terraform destroy -target=<resourcestype.Local resource name>  - i.e if we say Aws instance need deletion #terraform destroy -target aws_instance.myec2
+
 **Terraform Statefile (terraform.tfstate)**  -it maps real-world resources to the existing configuration file, terraform state file also provides information related to the service created.
 Terraform the Desired state to the Current state: Terraform primary function is to create, modify and destroy infrastructure resources to match the desired state described in a current terraform configuration. The current state is the actual state of resources that are currently deployed. Terraform tries to ensure that the deployed infrastructure is based on the desired state, if the difference between the two terraform plan presents a description of changes necessary to achieve the desired state. Its important to check as terraform only make desired state to that of the current state only to that parameter which is defined in .tf configuration file, not to that other parameters 
 
@@ -55,3 +56,45 @@ Variables are used to parameterize your Terraform configurations. They allow us 
 
 Data sources are used to retrieve information from external systems or existing resources and incorporate that information into our configuration. Data sources provide dynamic and context-aware attributes that can be used within our resource definitions. They help us make your configurations more intelligent and adaptable by leveraging information from the real world. https://spacelift.io/blog/terraform-data-sources-how-they-are-utilised 
 
+
+**Debugging in terraform**   Terraform has detailed logs which can be enabled by setting the TF_LOG environment variable to any value. You can set TF_LOG to one of the log levels TRACE,DEBUG,INFO,WARN or ERROR to change the verbosity of the logs.  TRACE is the most verbose and its is the default if TF_LOG is set to something other than log Level name , To persist logged output you can set TF_LOG_PATH in order to force the log to always be appended to a specific file when logging is enabled.
+ #export TF_LOG_PATH=/tmp/crash.log  
+ #export TF_LOG=TRACE
+ #unset TF_LOG
+
+**Terraform Format**: The terraform fmt command is used to rewrite Terraform configuration files to take care of the overall formatting. 
+    #terraform fmt
+    
+**Tainting Resource /Replace**: The terraform taint command manually marks a Terraform Managed resource as tainted, forcing it to destroy and recreated on the next apply. #terraform taint <resource type>.<name of resource>
+  #terraform apply -replace=resourectype.name
+
+**Terraform Plan file**:  The generated terraform plan can be saved to a specific path. This plan can then be used with terraform apply to be certain that only the changes shown in this plan are applied. Example :   #terraform plan -out=path  , #terraform apply demopath
+
+**Terraform output**: command is used to extract the value of output variable from the state file. #terraform output
+
+**Dealing with Large Configuration**   The -target=resource flag can be used to target a specific resource. Generally used as a means to operate on isolated portions of very large configurations.Setting Refresh along with Target flags #terraform plan -refresh=false -target=<resources type.Local resource name> 
+
+**Updating an existing resource created by Terraform** If we updating an new feilds like addition of tag then when you do terraform apply to make changes , But if you making changes to parameters like ami for this resource need to be deleted & recreated when did terraform apply 
+ https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-change   & https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-change
+
+**Terraform import** - import resources which are manually created #terraform import resourcetype.name <instanceiddetails or name>
+
+**Terraform Modules** 
+The Root Module
+Every Terraform configuration has at least one module, known as its root module, which consists of the resources defined in the .tf files in the main working directory.
+
+Child Modules
+A Terraform module (usually the root module of a configuration) can call other modules to include their resources into the configuration. A module that has been called by another module is often referred to as a child module.
+
+Child modules can be called multiple times within the same configuration, and multiple configurations can use the same child module.
+
+Published Modules
+In addition to modules from the local filesystem, Terraform can load modules from a public or private registry. This makes it possible to publish modules for others to use, and to use modules that others have published.
+
+**Terraform workspace**
+Terraform allows us to have multiple workspaces, each workspace have different state file but using same configuration files , its use to multiple environment like staging , Production , Dev 
+                #terraform workspace -h   (it will give a list of all commands related to workspace)
+                #terraform workspace show
+                #terraform workspace new <workspacename>
+                #terraform workspace list
+                #terraform workspace select <workspacename>
