@@ -9,7 +9,7 @@ Define the aws/azure/GCP providers as required & only define here provider versi
 
 **Remote backend** THis use to store terraform.tfstate state file as its allow encryption, version controll, locking of tfstate.
 
-*#terraform validate*  - Command to validate .tf file configuration, The terraform validate command is used to validate the syntax of the terraform files.
+#terraform validate  - Command to validate .tf file configuration, The terraform validate command is used to validate the syntax of the terraform files.
 
 #terraform init   - Command to download Provider plugins
 
@@ -50,6 +50,8 @@ The arguments available within a lifecycle block are create_before_destroy, prev
 
 **Terraform Function** Terraform functions are built-in, reusable code blocks that perform specific tasks within Terraform configurations, such as numeric(min,max) , Date & time , string .
 
+**Data Source** VS **Variables** 
+Variables are used to parameterize your Terraform configurations. They allow us to define reusable values that can be customized for different environments or deployments. Variables are typically used to make our configurations more flexible and easier to manage by centralizing values that might change based on the context.
 
-
+Data sources are used to retrieve information from external systems or existing resources and incorporate that information into our configuration. Data sources provide dynamic and context-aware attributes that can be used within our resource definitions. They help us make your configurations more intelligent and adaptable by leveraging information from the real world. https://spacelift.io/blog/terraform-data-sources-how-they-are-utilised 
 
