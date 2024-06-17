@@ -98,3 +98,25 @@ Terraform allows us to have multiple workspaces, each workspace have different s
                 #terraform workspace new <workspacename>
                 #terraform workspace list
                 #terraform workspace select <workspacename>
+
+**Deployment of same resource in different region** in that case under provider block we different provider with alias name & resource block has defined with provider with specific alias name of provider 
+
+**securing secrets in Code**  
+Method 1 : Defining variable.tf file with sensitive field as True 
+
+Method 2: Create secret.tfvars file that also hold secret username & passwords & pass them during terraform apply command 
+  # terraform apply -var-file="secret.tfvars"
+
+using above methods help to secure password to be display when run terraform apply command 
+
+Method 3 : Passing secret as environment variable 
+When Terraform runs, it looks in your environment for variables that match the pattern TF_VAR_<VARIABLE_NAME>, and assigns those values to the corresponding Terraform variables in your configuration.
+
+#export TF_VAR_db_username=
+#export TF_VAR_db_password=
+
+Mthod 4 follow Hashicorp vault https://github.com/iam-veeramalla/terraform-zero-to-hero/tree/main/Day-7
+
+**Sentinel Policies**
+
+                
