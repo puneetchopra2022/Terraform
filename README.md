@@ -119,4 +119,14 @@ Mthod 4 follow Hashicorp vault https://github.com/iam-veeramalla/terraform-zero-
 
 **Sentinel Policies**
 
+**Depand on** Terraform depends_on allows you to create an explicit dependency between two resources.
+
+**Provisioner in Terraform** https://spacelift.io/blog/terraform-provisioners 
+Local-exec provisioners   -- executed on local terraform host i.e for taking private ip of ec2 on file 
+Remote-exec provisioners  -- executed on resource this also need connection block 
+File provisioners   --- executed on resource this also need connection block  copy a file to resource 
+
+
+
+
                 
