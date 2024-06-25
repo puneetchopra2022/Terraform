@@ -16,7 +16,7 @@ Define the aws/azure/GCP providers as required & only define here provider versi
 #terraform plan   - Command to review the Update in resources, The terraform plan command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the real infrastructure objects being managed with the current 
   working directory and workspace.
   
-#terraform apply  or  #terraform apply -auto-arrpve  - command to apply changes to resources on Cloud
+#terraform apply  or  #terraform apply -auto-aprrove  - command to apply changes to resources on Cloud
 
 #terraform destroy  - command to delete all resources created by terraform file
 
