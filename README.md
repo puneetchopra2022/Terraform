@@ -1,26 +1,25 @@
 # Terraform
 
-**Introduction** Terraform is an infrastructure orchestration tool used to provision an infrastructure whereas Ansible, cheff, and Putty is a configuration management tools used for installation & configuration-related tasks. Other tools like chef, puppet, and ansible can be used as infrastructure provisioning to a get extent. Terrdaform is based on HCL language , (hashicorp configuration language)
+**Introduction** Terraform is an infrastructure orchestration tool used to provision an infrastructure whereas Ansible, cheff, and Putty is a configuration management tools used for installation & configuration-related tasks. Other tools like chef, puppet, and ansible can be used as infrastructure provisioning to a get extent. Terraform is based on HCL language , (hashicorp configuration language)
 
 **Installation** windows/linux based platform, remember to include path in Windows to allow terraform command to work, follow https://askubuntu.com/questions/983351/how-to-install-terraform-in-ubuntu
 
 **Provider Declaration**
 Define the aws/azure/GCP providers as required & only define here provider version & regions of deployment, For credential of provider for aws use define credential via Environment variable via export AWS_ACCESS KEY & EXPORT SECRET_KEY command 
 
-**Remote backend** THis use to store terraform.tfstate state file as its allow encryption, version controll, locking of tfstate.
+**Remote backend** THis use to store terraform.tfstate state file as its allow encryption, version control, locking of tfstate.
 
 #terraform validate  - Command to validate .tf file configuration, The terraform validate command is used to validate the syntax of the terraform files.
 
 #terraform init   - Command to download Provider plugins
 
-#terraform plan   - Command to review the Update in resources, The terraform plan command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the real infrastructure objects being managed with the current 
-  working directory and workspace.
+#terraform plan   - Command to review the Update in resources, The terraform plan command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the real infrastructure objects being managed with the current working directory and workspace.
   
 #terraform apply  or  #terraform apply -auto-aprrove  - command to apply changes to resources on Cloud
 
 #terraform destroy  - command to delete all resources created by terraform file
 
-#terraform destroy -target=<resourcestype.Local resource name>  - i.e if we say Aws instance need deletion #terraform destroy -target aws_instance.myec2
+#terraform destroy -target <resourcestype.Local resource name>  - i.e if we say Aws instance need deletion #terraform destroy -target aws_instance.myec2
 
 **Terraform Statefile (terraform.tfstate)**  -it maps real-world resources to the existing configuration file, terraform state file also provides information related to the service created.
 Terraform the Desired state to the Current state: Terraform primary function is to create, modify and destroy infrastructure resources to match the desired state described in a current terraform configuration. The current state is the actual state of resources that are currently deployed. Terraform tries to ensure that the deployed infrastructure is based on the desired state, if the difference between the two terraform plan presents a description of changes necessary to achieve the desired state. Its important to check as terraform only make desired state to that of the current state only to that parameter which is defined in .tf configuration file, not to that other parameters 
