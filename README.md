@@ -7,7 +7,7 @@
 **Provider Declaration**
 Define the aws/azure/GCP providers as required & only define here provider version & regions of deployment, For credential of provider for aws use define credential via Environment variable via export AWS_ACCESS KEY & EXPORT SECRET_KEY command 
 
-**Remote backend** THis use to store terraform.tfstate state file as its allow encryption, version control, locking of tfstate.
+**Remote backend** This use to store terraform.tfstate state file as its allow encryption, version control, locking of tfstate.
 
 #terraform validate  - Command to validate .tf file configuration, The terraform validate command is used to validate the syntax of the terraform files.
 
@@ -77,6 +77,10 @@ Data sources are used to retrieve information from external systems or existing 
  https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-change   & https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-change
 
 **Terraform import** - import resources which are manually created #terraform import resourcetype.name <instanceiddetails or name>
+
+**terraform refresh - if someone manual made an change in outside terraform & want to update statefile to include that changes**
+
+**terraform state rm <resource_type>.<resource_name>    If you want to remove a resource from the Terraform state without deleting the actual resource**
 
 **Terraform Modules** 
 The Root Module
